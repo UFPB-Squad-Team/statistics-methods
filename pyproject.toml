@@ -1,0 +1,23 @@
+[project]
+name = "statistics-method"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Brenno Henrique",email = "brennohdev@gmail.com"}
+]
+requires-python = ">=3.11"
+dependencies = [
+    "pandas (>=3.0.1,<4.0.0)",
+    "numpy (>=2.4.3,<3.0.0)",
+    "openpyxl (>=3.1.5,<4.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[dependency-groups]
+dev = [
+    "ipykernel (>=7.2.0,<8.0.0)"
+]

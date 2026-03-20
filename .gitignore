@@ -1,0 +1,72 @@
+# .gitignore para projeto Python (Poetry)
+# Manter a pasta data/ no repositório (não ignorar)
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Packages / distribution
+build/
+dist/
+*.egg-info/
+*.egg
+pip-wheel-metadata/
+wheels/
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# IDEs / editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Test / coverage
+.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# Type checkers / linters / caches
+.mypy_cache/
+.dmypy.json
+.pyre/
+.pytype/
+
+# Logs and misc
+*.log
+*.sqlite3
+*.db
+*.pid
+*.seed
+*.bak
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Spyder / Rope
+.spyderproject
+.ropeproject
+
+# Local env / secrets
+.env
+.env.*
+secrets.json
+
+# Ensure data/ is included in the repo
+!data/
+!data/**
