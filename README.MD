@@ -33,6 +33,9 @@ Fonte principal dos dados: [IBGE — Cidades e Estados](https://www.ibge.gov.br/
 - pandas
 - numpy
 - openpyxl
+- scipy
+- matplotlib
+- seaborn
 - ipykernel (desenvolvimento/notebook)
 
 As dependências estão definidas em [pyproject.toml](pyproject.toml).
