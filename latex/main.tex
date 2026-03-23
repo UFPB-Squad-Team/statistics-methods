@@ -55,7 +55,7 @@ As bases utilizadas foram extraídas da plataforma IBGE Cidades e Estados. Para 
 
 \section{Estatísticas Descritivas}
 \subsection{Explicação}
-As medidas de tendência central e dispersão foram calculadas para as três variáveis de interesse: IDEB, proporção de renda até 1/2 salário mínimo, e salário médio formal. A moda foi dispensada devido à natureza contínua das variáveis numéricas. Os valores referem-se às amostras de $n=30$ municípios em cada estado.
+As medidas de tendência central e dispersão foram calculadas para as três variáveis de interesse: IDEB, proporção de renda até 1/2 salário mínimo, e salário médio formal. A moda foi dispensada devido à natureza contínua das variáveis numéricas. Os valores reportados contemplam populações completas (PB: $N=223$; RN: $N=167$) e amostras aleatórias ($n=30$ em cada estado).
 
 \subsection{Insights}
 \textbf{IDEB.} As médias de IDEB revelam assimetria entre os estados: PB com 5,41 versus RN com 4,82, sugerindo diferença de cerca de 0,6 pontos. Os desvios padrão semelhantes (0,66 e 0,55) indicam heterogeneidade comparável entre os municípios de cada estado.
@@ -64,7 +64,14 @@ As medidas de tendência central e dispersão foram calculadas para as três var
 
 \textbf{Salário formal.} As médias salariais são praticamente idênticas (PB: 1,80 SM; RN: 1,83 SM), com desvios padrão próximos (0,28 e 0,26 SM). Esses dados sugerem estruturas salariais municipais semelhantes entre os dois estados no recorte amostral.
 
-Os valores descritivos de referência estão resumidos nas Tabelas \ref{tab:descritiva_pb} e \ref{tab:descritiva_rn}. As tabelas completas (incluindo populações e todas as estatísticas) foram disponibilizadas no link de reprodutibilidade da Subseção 1.3.
+\textbf{Representatividade Amostral (População vs. Amostra).} Avaliando as estatísticas descritivas completas (disponíveis no repositório de reprodutibilidade), as amostras aleatórias de $n=30$ demonstraram ser altamente representativas de suas respectivas populações de origem ($N=223$ na PB e $N=167$ no RN). Os parâmetros populacionais de tendência central encontram-se próximos ao centro das distribuições amostrais. Da mesma forma, os desvios padrão das amostras acompanharam de perto os desvios populacionais, garantindo que a dispersão e a heterogeneidade natural dos estados fossem preservadas na amostragem simples.
+
+Os valores descritivos de referência estão resumidos nas Tabelas \ref{tab:descritiva_pb_completa} e \ref{tab:descritiva_rn_completa}, que apresentam as três variáveis com todos os parâmetros solicitados (média, mediana, variância, desvio padrão, mínimo, máximo e quartis), tanto para população quanto para amostra. As tabelas completas também foram disponibilizadas no link de reprodutibilidade da Subseção 1.3.
+
+\input{tables/tab_desc_pb_completa.tex}
+\input{tables/tab_desc_rn_completa.tex}
+
+\FloatBarrier
 
 \section{Análise Gráfica}
 \subsection{Explicação}
@@ -80,11 +87,7 @@ A variável salário médio mensal foi analisada por histogramas e boxplots (ver
 \subsection{Insights}
 A assimetria à direita indica concentração de municípios em níveis salariais mais baixos e poucos municípios com salários mais altos deslocando a média. Esse comportamento explica por que medianas e quartis são úteis como complemento à média para leitura da distribuição.
 
-\FloatBarrier
-
-% Tabelas de estatísticas descritivas por estado
-\input{tables/tab_descritiva_pb.tex}
-\input{tables/tab_descritiva_rn.tex}
+Em relação aos valores atípicos (outliers), o boxplot revela a presença de uma observação extrema na amostra da PB (um município com salário médio superior a 2,6 SM), o que não ocorreu na amostra do RN, onde todos os dados se mantiveram dentro dos limites interquartílicos.
 
 \FloatBarrier
 
@@ -94,17 +97,36 @@ Os resultados completos dos testes de hipóteses estão resumidos na Tabela \ref
 \input{tables/tab_inferencia.tex}
 
 \subsection{Proporção municipal de renda até 1/2 salário mínimo}
-A diferença média estimada foi de $1{,}0167$ p.p. (PB -- RN), com IC95\% $[-1{,}2147;\ 3{,}2480]$. Como $p=0{,}3655$, não houve evidência estatística de diferença entre os estados ao nível de 5\%.
+
+\textbf{Hipóteses:} $H_0: \mu_{\text{PB}} = \mu_{\text{RN}}$ versus $H_1: \mu_{\text{PB}} \neq \mu_{\text{RN}}$ (teste bicaudal, $\alpha = 0{,}05$).
+
+\textbf{Intervalos de Confiança individuais:} PB: IC95\% $[48{,}5480;\ 51{,}5386]$ p.p.; RN: IC95\% $[47{,}3057;\ 50{,}7476]$ p.p. Os intervalos sobrepõem-se substancialmente, sugerindo similaridade nas proporções populacionais.
+
+\textbf{Teste de Variâncias:} O teste F apresentou $F = 1{,}3246$ (gl: 29 e 29) com $p = 0{,}4537$, indicando que não há evidência de desigualdade de variâncias ($p > 0{,}05$). Portanto, assumiu-se igualdade de variâncias para o teste t subsequente.
+
+\textbf{Teste t:} Com a suposição de variâncias iguais, obteve-se $t = 0{,}9121$ (gl = 58) e $p = 0{,}3655$. A diferença média estimada foi de $1{,}0167$ p.p. (PB -- RN), com IC95\% $[-1{,}2147;\ 3{,}2480]$. Como $p > 0{,}05$, não houve evidência estatística de diferença entre os estados ao nível de 5\%.
 
 \textbf{Insight.} Embora a média da PB tenha sido numericamente superior, o intervalo de confiança inclui zero e a evidência amostral não sustenta diferença sistemática entre os estados nesse indicador social.
 
 \subsection{Comparação das médias do IDEB}
-A média de IDEB foi maior na PB (5,4138) em comparação ao RN (4,8200). A diferença média foi de $0{,}5938$ ponto, com IC95\% $[0{,}2773;\ 0{,}9103]$. O teste t indicou significância estatística ($p=0{,}0004$).
+
+\textbf{Hipóteses:} $H_0: \mu_{\text{PB}} = \mu_{\text{RN}}$ versus $H_1: \mu_{\text{PB}} \neq \mu_{\text{RN}}$ (teste bicaudal, $\alpha = 0{,}05$).
+
+\textbf{Intervalos de Confiança individuais:} PB (n=29): IC95\% $[5{,}1632;\ 5{,}6644]$; RN (n=30): IC95\% $[4{,}6137;\ 5{,}0263]$. Os intervalos não se sobrepõem, sugerindo diferença substancial entre os estados.
+
+\textbf{Teste de Variâncias (F):} O teste F apresentou $F = 1{,}4228$ (gl: 28 e 29) com $p = 0{,}3505$. Como $p > 0{,}05$, não há evidência de desigualdade de variâncias. Portanto, assumiu-se igualdade de variâncias.
+
+\textbf{Teste t:} Com variâncias iguais, obteve-se $t = 3{,}7564$ (gl = 57) e $p = 0{,}0004$. A diferença média foi de $0{,}5938$ ponto, com IC95\% $[0{,}2773;\ 0{,}9103]$. Como $p < 0{,}05$, há evidência estatística significativa de diferença entre os estados.
 
 \textbf{Insight.} Diferentemente dos indicadores econômicos, aqui há evidência robusta de desigualdade entre os estados no recorte amostral. O efeito observado é substantivamente relevante para o contexto educacional municipal.
 
 \subsection{Comparação das médias salariais}
-Para salário médio formal, observou-se média de 1,8033 (PB) e 1,8267 (RN). A suposição de variâncias iguais foi sustentada pelo teste de Levene ($p=0{,}8397$), e o teste t apresentou resultado não significativo ($p=0{,}7385$). Em termos inferenciais, os dados não apontam diferença média entre os estados nesse indicador.
+
+\textbf{Hipóteses:} $H_0: \mu_{\text{PB}} = \mu_{\text{RN}}$ versus $H_1: \mu_{\text{PB}} \neq \mu_{\text{RN}}$ (teste bicaudal, $\alpha = 0{,}05$).
+
+\textbf{Teste de Variâncias (Levene):} A suposição de variâncias iguais foi avaliada pelo teste de Levene, que apresentou $p = 0{,}8397 > 0{,}05$. Portanto, não há evidência de desigualdade de variâncias, validando a aplicação do teste t com variâncias iguais.
+
+\textbf{Teste t:} Para salário médio formal, observou-se média de 1,80 SM (PB) e 1,83 SM (RN). O teste t apresentou $t = -0{,}3355$ (gl = 58) e $p = 0{,}7385$. Como $p > 0{,}05$, o teste não indicou diferença estatisticamente significativa entre os estados.
 
 \textbf{Insight.} A proximidade das médias e o $p$-valor elevado sustentam a leitura de patamares salariais formais semelhantes entre as amostras de PB e RN.
 
