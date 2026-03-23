@@ -55,19 +55,16 @@ As bases utilizadas foram extraídas da plataforma IBGE Cidades e Estados. Para 
 
 \section{Estatísticas Descritivas}
 \subsection{Explicação}
-As medidas de tendência central e dispersão foram calculadas para as variáveis de interesse. A moda foi dispensada devido à natureza contínua das variáveis numéricas.
+As medidas de tendência central e dispersão foram calculadas para as três variáveis de interesse: IDEB, proporção de renda até 1/2 salário mínimo, e salário médio formal. A moda foi dispensada devido à natureza contínua das variáveis numéricas. Os valores referem-se às amostras de $n=30$ municípios em cada estado.
 
 \subsection{Insights}
-Mesmo com médias salariais próximas (PB: 1,8033; RN: 1,8267), os desvios padrão indicam dispersão interna relevante em ambos os estados, consistente com heterogeneidade municipal. Esse padrão reforça que comparações entre estados devem ser acompanhadas por inferência formal, e não apenas por diferenças aparentes de média.
+\textbf{IDEB.} As médias de IDEB revelam assimetria entre os estados: PB com 5,41 versus RN com 4,82, sugerindo diferença de cerca de 0,6 pontos. Os desvios padrão semelhantes (0,66 e 0,55) indicam heterogeneidade comparável entre os municípios de cada estado.
 
-Os valores descritivos de referência estão resumidos na Tabela \ref{tab:descritiva_salario}.
+\textbf{Renda (até 1/2 SM).} Ambos os estados exibem proporções próximas (PB: 50,04\%; RN: 49,03\%), com medianas igualmente alinhadas (50,20\% e 49,50\%, respectivamente). Os desvios padrão de 4,00\% e 4,61\% refletem dispersão similar em torno das médias, indicando comparabilidade no comportamento socioeconômico entre as amostras.
 
-As tabelas completas de estatísticas descritivas (populações e amostras para todas as variáveis) foram disponibilizadas no link de reprodutibilidade apresentado na Subseção 1.3.
+\textbf{Salário formal.} As médias salariais são praticamente idênticas (PB: 1,80 SM; RN: 1,83 SM), com desvios padrão próximos (0,28 e 0,26 SM). Esses dados sugerem estruturas salariais municipais semelhantes entre os dois estados no recorte amostral.
 
-% Tabela posicionada ao fim da seção para não interromper a leitura entre 2.1 e 2.2.
-\input{tables/tab_descritiva_salario.tex}
-
-\FloatBarrier
+Os valores descritivos de referência estão resumidos nas Tabelas \ref{tab:descritiva_pb} e \ref{tab:descritiva_rn}. As tabelas completas (incluindo populações e todas as estatísticas) foram disponibilizadas no link de reprodutibilidade da Subseção 1.3.
 
 \section{Análise Gráfica}
 \subsection{Explicação}
@@ -82,6 +79,12 @@ A variável salário médio mensal foi analisada por histogramas e boxplots (ver
 
 \subsection{Insights}
 A assimetria à direita indica concentração de municípios em níveis salariais mais baixos e poucos municípios com salários mais altos deslocando a média. Esse comportamento explica por que medianas e quartis são úteis como complemento à média para leitura da distribuição.
+
+\FloatBarrier
+
+% Tabelas de estatísticas descritivas por estado
+\input{tables/tab_descritiva_pb.tex}
+\input{tables/tab_descritiva_rn.tex}
 
 \FloatBarrier
 
